@@ -1,0 +1,52 @@
+{
+  "name": "YT watch later delete button",
+  "description": "This extension allows you to easily remove videos from the 'Watch Later' playlist on YouTube. It adds a button to each playlist item for quick one-click removal. This is convenient for those who watch a lot of videos and want to easily manage their watchlist.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "ico128.png"
+  },
+  "action": {
+    "default_title": "Inject the buttons",
+    "default_icon": {
+      "16": "icon16.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "run_at" : "document_start",
+      "css": ["styles.css"],
+      "js": ["before.js"],
+      "matches": [
+        "https://www.youtube.com/playlist?list=WL*"
+      ]
+    },
+    {
+      "run_at" : "document_end",
+      "js": ["execute.js"],
+      "matches": [
+        "https://www.youtube.com/playlist?list=WL*"
+      ]
+    },
+    {
+      "run_at" : "document_idle",
+      "js": ["after.js"],
+      "matches": [
+        "https://www.youtube.com/playlist?list=WL*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
+}

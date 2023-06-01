@@ -1,0 +1,30 @@
+.hidden {
+  display: none;
+}
+
+.myBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rgba(102, 51, 153, 0.5);
+  transition: all 250ms ease;
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.myBtn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transform: rotate(5deg);
+  background-color: rgba(145, 25, 110, 0.5);
+}
+
+.myBtn:active {
+  background-color: rgba(145, 25, 110, 0.8);
+}
+
